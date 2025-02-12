@@ -14,12 +14,12 @@ description = f"""
 """
 
 app = FastAPI(
-    title="API do ",
+    title="API SATCLIN ",
     description=description,
     version="0.1",
     terms_of_service="http://example.com/terms/",
     contact={
-        "name": "Samantha Adiely Alecrim",
+        "name": "Billy Fádel, Edson Laranjeiras e Samantha Alecrim",
         "url": "http://github.com/Adiely/",
         "email": "samanthaalecrim.biotec@gmail.com",
     },
