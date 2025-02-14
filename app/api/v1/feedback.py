@@ -1,12 +1,15 @@
 from fastapi import APIRouter, Depends
 from app.models.feedback import Feedback
 from app.services.gemini_service import GeminiService
+import os
 
 router = APIRouter(prefix="/feedback")
 
+
 async def get_gemini_service():
-    # Configurar a API KEY do Google Gemini
-    api_key = "AIzaSyAfSlMBINrNi1Ut5_fb5PcHMSZ2T0Gih4s"
+    api_key = os.environ.get("AIzaSyAfSlMBINrNi1Ut5_fb5PcHMSZ2T0Gih4s")
+    if not api_key:
+        raise ValueError("API KEY do Google Gemini não encontrada.")
     return GeminiService(api_key)
 
 @router.post("/", response_model=str)
